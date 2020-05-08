@@ -1,4 +1,7 @@
 var id = 1;
+var min = 1;
+var max = 5;
+var i = 0;
 
 function start(){
     $("#start").click();
@@ -13,7 +16,7 @@ function click1(title,content,method) {
                 "<div class='modal-dialog modal-sm modal-dialog-centered' role='document'>"+
                 "<div class='modal-content'>"+
                 "<div class='modal-header'>"+
-                "<h5 class='modal-title'>"+title+"</h5>"+
+                "<h5 class='modal-title'><strong>"+title+"</strong></h5>"+
                 "</div>"+
                 "<div class='modal-body'>"+
                 "<div class='text-center'>"+
@@ -77,10 +80,6 @@ function method8(){
 function method9(){
     click1("提示","哎呀累了！数绵羊哄我睡觉","method10()");
 }
-
-var min = 1;
-var max = 10;
-var i = 0;
 function method10(){
     i++
     if(i >= min && i <= max){
@@ -96,8 +95,8 @@ function method11(){
 }
 
 function method12(){
-    $("#staticBackdropLabel").text("请输入")
-    $("#q").text("是不是？");
+    $("#staticBackdropLabel").html("<strong>请输入</strong>")
+    $("#q").text("我是不是大好人？");
     $("#zhu").val("是");
     $("#tijiao").attr("onclick","method13()");
     $("#staticBackdrop").modal("toggle");
@@ -105,11 +104,12 @@ function method12(){
 
 function method13() {
     var value1 = $("#zhu").val();
-    console.log(value1)
     if(value1 == "" || value1 != "是"){
         click1("提示","呵呵","method12()");
+    }else{
+        window.location.reload();
     }
-    window.location.reload();
+    
 }
 
 
